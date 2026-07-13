@@ -49,3 +49,49 @@ def play_game():
              "7","8","9"]
 
     current_player = "X"
+
+while True:
+
+        display_board()
+
+        try:
+            choice = int(input(f"Player {current_player}, choose a position (1-9): "))
+
+            if choice < 1 or choice > 9:
+                print("Choose a number between 1 and 9.")
+                continue
+
+            if board[choice-1] in ["X","O"]:
+                print("Position already taken.")
+                continue
+
+            board[choice-1] = current_player
+
+            if check_winner(current_player):
+                display_board()
+                print(f"Player {current_player} wins!")
+                break
+
+            if board_full():
+                display_board()
+                print("It's a draw!")
+                break
+
+            if current_player == "X":
+                current_player = "O"
+            else:
+                current_player = "X"
+
+        except ValueError:
+            print("Enter a valid number.")
+
+
+while True:
+
+    play_game()
+
+    again = input("Play again? (y/n): ").lower()
+
+    if again != "y":
+        print("Goodbye!")
+        break
