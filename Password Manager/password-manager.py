@@ -100,3 +100,38 @@ def delete_password():
 
 
 passwords = load_passwords()
+
+
+while True:
+
+    print("===== PASSWORD MANAGER =====")
+    print("1. Add Password")
+    print("2. View Passwords")
+    print("3. Search Password")
+    print("4. Update Password")
+    print("5. Delete Password")
+    print("6. Exit")
+
+    choice = input("Choose an option: ")
+
+    if choice == "1":
+        add_password()
+
+    elif choice == "2":
+        view_passwords()
+
+    elif choice == "3":
+        search_password()
+
+    elif choice == "4":
+        update_password()
+
+    elif choice == "5":
+        delete_password()
+
+    elif choice == "6":
+        print("Goodbye!")
+        break
+
+    else:
+        print("Invalid choice.\n")
