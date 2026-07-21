@@ -78,3 +78,70 @@ def view_students():
             print(f"Grade: {grade}")
 
             print("-" * 30)
+            
+
+def search_student():
+
+    student_id = input("Enter student ID: ")
+
+    for student in students:
+
+        if student["id"].lower() == student_id.lower():
+
+            average = calculate_average(student["grades"])
+            grade = calculate_grade(average)
+
+            print(f"\nName: {student['name']}")
+            print(f"Student ID: {student['id']}")
+            print(f"Average: {average:.2f}")
+            print(f"Grade: {grade}\n")
+
+            return
+
+    print("Student not found.\n")
+
+
+def update_student():
+
+    student_id = input("Enter student ID to update: ")
+
+    for student in students:
+
+        if student["id"].lower() == student_id.lower():
+
+            print("Enter the new grades:")
+
+            student["grades"]["Mathematics"] = float(
+                input("Mathematics: ")
+            )
+
+            student["grades"]["English"] = float(
+                input("English: ")
+            )
+
+            student["grades"]["Science"] = float(
+                input("Science: ")
+            )
+
+            print("Grades updated successfully!\n")
+
+            return
+
+    print("Student not found.\n")
+
+
+def delete_student():
+
+    student_id = input("Enter student ID to delete: ")
+
+    for student in students:
+
+        if student["id"].lower() == student_id.lower():
+
+            students.remove(student)
+
+            print("Student deleted successfully!\n")
+
+            return
+
+    print("Student not found.\n")
